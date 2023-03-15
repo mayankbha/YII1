@@ -1,0 +1,41 @@
+.btn-group.nav-right-group {
+    position: static;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+     transform: rotate(0deg);
+    margin-bottom: 0 !important;
+    margin-left: 9px !important;
+}
+
+.btn-group.nav-right-group > .btn {
+    border-top-right-radius: 20px !important;
+    border-top-left-radius: 20px !important;
+}
+.btn-group.nav-right-group > .btn:not(.active) {
+    border-color: transparent !important;
+}
+
+.btn-group.nav-right-group > .btn:focus {
+    outline:0;
+}
+
+.tab-content {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.tab-content .tab-content {
+    border: 1px solid #ddd;
+    padding: 15px;
+    min-height: 500px;
+}
+
+.sub-content-wrapper, .site-error {
+    margin-top: 105px;
+    margin-right: 0 !important;
+    margin-left: 40px;
+    position: relative;
+}

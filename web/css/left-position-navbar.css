@@ -1,0 +1,137 @@
+.info-place {
+    top: 0;
+    padding-top: 5px;
+    padding-left: 15px;
+}
+.sub-content-wrapper, .site-error {
+    margin-top: 80px;
+}
+.navbar-toggle {
+    display: block;
+}
+.nav-left-group .left-navbar-icon, .left-navbar-icon {
+    font-size: 19px;
+    line-height: 21px;
+    margin: 0 20px 5px 0;
+    color: #999;
+    background-color: #fff;
+}
+
+body div:not(.sub-content-wrapper) > div > .nav-left-group {
+    top: 0;
+    left: 250px;
+    padding-left: 15px;
+}
+
+.left-position-navbar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 250px;
+    margin: 0;
+    overflow-y: auto;
+    border: 0 solid #ddd;
+    border-right-width: 3px;
+    background-color: #f5f5f5;
+    height: 100%;
+    z-index: 10;
+}
+.wrap {
+    margin: 0 0 -60px 250px;
+    position: relative;
+}
+
+.footer {
+    position: relative;
+    z-index: 11;
+}
+
+.container {
+    width: 100%;
+}
+
+.left-position-navbar-logo, .left-position-navbar-user-info {
+    padding: 20px 20px;
+    text-align: center;
+    border: 0 solid #ddd;
+    border-bottom-width: 1px;
+}
+.left-position-navbar-logo img {
+    max-height: 40px;
+}
+
+.left-position-navbar-user-info img{
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+}
+.left-position-navbar-user-info .username-block {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.left-position-navbar-user-info .feature-block {
+    padding: 15px 0 0 0;
+}
+.left-position-navbar-user-info .feature-block a {
+    font-size: 19px;
+    padding: 0px 9px;
+}
+
+.left-position-navbar-menu {
+    padding: 15px 0 60px 0;
+}
+
+.left-position-navbar-menu .left-position-navbar-menu-icon {
+    width: 20px;
+    font-size: 16px;
+    line-height: 16px;
+    margin-right: 10px;
+}
+
+.left-position-navbar-menu .dropdown .dropdown-toggle .caret {
+    float: right;
+    margin: 6px 0 0 0;
+}
+
+.left-position-navbar-menu .dropdown .dropdown-menu {
+    position: relative;
+    width: 100%;
+    float: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff9e;
+}
+
+.left-position-navbar-menu .dropdown .dropdown-menu > li > a {
+    padding: 10px 15px 10px 45px;
+}
+
+@media (max-width: 900px) {
+    .wrap {
+        margin: 0 0 -60px 0;
+    }
+    .wrap > .navbar.info-place {
+        left: 250px;
+    }
+    .left-position-navbar {
+        left: -250px;
+    }
+    .wrap > .navbar.info-place,
+    body div:not(.sub-content-wrapper) > div > .nav-left-group {
+        left: 0;
+    }
+}
+
+.badge.all-chat-notifications {
+    margin-left: -10px;
+    margin-top: -25px;
+    position: relative;
+    z-index: 1;
+    font-size:  10px;
+    padding: 3px 6px;
+}

@@ -1,0 +1,566 @@
+/* UI styles */
+
+:root {
+    --sidebar-width: 23vw;
+}
+
+body {
+    overflow: hidden;
+}
+body * {
+    box-sizing: content-box;
+    font-family: sans-serif;
+}
+
+#pointers {
+    /*width: 100vw; */
+    width: inherit;
+    height: 100vh;
+    /*position: fixed; */
+    position: absolute;
+    pointer-events: none;
+    left: 0; 
+    top: 0;
+}
+
+#placeholder {
+    position: absolute; 
+    z-index: 1;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: row; 
+    height: 100vh; 
+    /*width: 100vw;*/
+    width: inherit;
+}
+
+#main {
+    height: 100vh; 
+    width: calc(inherit - var(--sidebar-width));
+    /*width: calc(100vw - var(--sidebar-width)); */
+    position: absolute;
+    left: var(--sidebar-width); 
+    top: 0; 
+    flex: 1;
+}
+#viewerContainer {
+    height: calc(100vh - 5em);
+    width: calc(inherit - var(--sidebar-width));
+    /*width: calc(100% - var(--sidebar-width));*/
+    position: absolute;
+    overflow-x: auto;
+    overflow-y: scroll;
+}
+.viewbar {
+    /* text-align: center; */
+    padding-top: 0.5em;
+    display: flex;
+    bottom: 0;
+    width: calc(inherit - var(--sidebar-width));
+    /*width: calc(100vw - var(--sidebar-width));*/
+    position: absolute;
+    align-items: center;
+}
+.viewbar .findcontrols {
+    flex: 1;
+    text-align: center;
+}
+/*.viewbar .pagecontrols {
+    position: relative;
+    top: -0.5em;
+}*/
+.viewbar .zoomcontrols {
+    /*float: right;*/
+    position: relative;
+    top: 0.5em;
+}
+
+.toolbar {
+    display: flex;
+    padding: 0.5em;
+    /*border-bottom: 1px solid #aaa;*/
+    min-height: 1.5em;
+    width: inherit
+}
+.toolbar button, .sidebar-title button, .sidebar-buttons > div:hover > i, .viewbar button, .zoomcontrols i {
+    font-size: 1.2em;
+    height: 1.5em;
+    border: 0;
+    background: transparent;
+    position: relative;
+    top: -0.1em;
+    width: 1em;
+    transition: transform 0.2s;
+}
+.sidebar button, .viewbar button, .sidebar-title > button {
+    top: 0;
+}
+.toolbar button:hover, .sidebar-title button:hover, .sidebar-buttons > div:hover > i, .viewbar button:hover, .zoomcontrols i:hover {
+    /*transform: scale(1.2) translateY(-0.1em);*/
+    background: #eee !important;
+    color: #440 !important;
+    transition: color 0.2s, transform 0.2s;
+}
+.toolbar select {
+    width: 5em;
+    border: 0;
+}
+.toolbar input {
+    height: 1.5em;
+    margin: auto 0;
+    margin-left: 1em;
+    width: 4em;
+    border: 0;
+    background-color: transparent;
+}
+.tbsep {
+    width: 2px;
+    border-right-style: ridge !important;
+    border-right-width: 2px !important;
+}
+
+#drawingLayer {
+    height: 100vh; 
+    width: calc(inherit - var(--sidebar-width));
+    /*width: calc(100vw - var(--sidebar-width)); */
+    position: absolute;
+    left: var(--sidebar-width); 
+    top: 0; 
+    pointer-events: none;
+	overflow: inherit;
+}
+
+section.dragging > div:not(.popupWrapper):empty {
+    border: 1px dashed black;
+}
+
+#popbar {
+    position: absolute;
+    z-index: 2;
+    background: #eee;
+    padding: 0.2em;
+    border: 1px solid #888;
+    box-shadow: 2px 2px 4px 0 #0000007d;
+    width: 18em;
+}
+iframe {
+    width: 100%; 
+    height: 5em;
+}
+
+.sidebar {
+    width: var(--sidebar-width); 
+    height: 100vh; 
+    position: absolute;
+    left: 0; 
+    top: 0;
+    border-right: 1px solid #aaa;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar-title {
+    width: 100%; 
+    /*border-bottom: 1px solid #aaa;*/
+    padding: 0.5em;
+    min-height: 1.5em;
+    display: flex;
+    align-items: center;
+}
+.sidebar-body {
+    border-left: 1px solid #8888;
+    overflow-y: auto;
+}
+.sidebar-buttons {
+    margin-right: 1em;
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    flex-grow: 1;
+    align-items: center;
+}
+.side-card {
+    box-shadow: 0 0 5px 0px #00000052;
+    margin: 0.2em;
+    border-radius: 0.2em;
+    /* border: 1px solid #aaa; */
+    overflow: hidden;
+    width: calc(100% - 1em);
+}
+.side-card > * {
+    padding: 0.1em;
+}
+.side-card.active {
+    border: 2px dashed red;
+}
+.side-card.active .side-card-buttons {
+    display: block;
+}
+.side-card.readonly .side-card-buttons .ok {
+    display: none !important;
+}
+.side-card.readonly .card-title .card-buttons {
+    visibility: hidden;
+}
+.side-card .side-card-buttons {
+    text-align: right; 
+    display: none;
+}
+.card-title {
+    padding: 0.2em;
+    background: #fff700;
+    flex-wrap: wrap;
+}
+.card-title .fa {
+    padding-right: 0.2em;
+}
+.card-title > * {
+    margin-left: 0.2em;
+}
+
+.side-card input {
+    display: none;
+}
+.side-card.active input{
+    display: inline;
+}
+.card-buttons {
+    flex: 1 1;
+    align-items: center;
+    display: none;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+}
+.side-card.active .card-buttons {
+    display: flex;
+}
+.card-buttons > * {
+    margin-left: 0.1em;
+}
+.card-title > .card-title-info {
+    display: flex;
+    flex: 1;
+}
+.side-card.active .card-title-info {
+    display: none;
+}
+.side-card .card-title-info .fa {
+    float: right;
+    cursor: pointer;
+}
+.side-card .card-title-info .fa-trash {
+    display: inline-block;
+}
+.side-card.readonly .card-title-info .fa-trash {
+    display: none;
+}
+.side-card .card-title-info .fa-lock {
+    display: none;
+}
+.side-card.readonly .card-title-info .fa-lock {
+    display: inline-block;
+}
+.card-title .card-author {
+    flex: 1 1;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.side-card > .card-title select[data-prop], .side-card > .card-title button[data-prop] {
+    display: none;
+}
+.side-card.stamp.active > .card-title [data-prop=stampType] {
+    display: inline;
+}
+.side-card.text.active > .card-title [data-prop=iconName] {
+    display: inline;
+}
+.side-card.polyline.active > .card-title [data-prop=line_ending],
+.side-card.ink.active > .card-title [data-prop=line_ending] {
+    display: inline;
+}
+
+.sidebar-page-sep {
+    padding: 0.2em;
+    height: 1em;
+    position: relative;
+    font-weight: bold;
+}
+.sidebar-page-sep::after {
+    content: " ";
+    position: absolute;
+    left: 0.25em;
+    top: 50%;
+    width: calc(100% - 0.5em);
+    height: 1px;
+    background: #a5a5a5;
+}
+.sidebar-page-sep > span {
+    z-index: 2;
+    position: absolute;
+    top: 2ox;
+    left: calc(50% - 2em);
+    display: inline-block;
+    background: white;
+    padding: 0 1em;
+}
+.sidebar-splitter {
+    width: 3px;
+    background: transparent;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: var(--sidebar-width);
+    cursor: ew-resize;
+}
+
+.annotationLayer section.selected {
+    border: 2px dashed red !important;
+}
+.annotationLayer section img {
+    display: none; /* hide until src fixed */
+}
+
+.noselection {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* actions */
+
+.page.point-action * {
+    cursor: hand;
+}
+.page.draw-action * {
+    cursor: url(../../img/annotation/cursors/draw.cur), auto;
+}
+.page.stamp-action *, .page.rect-action *, .page.poly-action * {
+    cursor: crosshair;
+}
+
+/* Annotation styles */
+
+.annotationLayer .popupWrapper {
+    pointer-events: none;
+}
+.annotationLayer .popupWrapper > .popup {
+    border: 1px solid #888;
+}
+
+.stamp.rotate0 {
+    box-shadow: 2px 2px 5px 0px #0000008c;
+}
+.stamp.rotate90 {
+    box-shadow: -2px 2px 5px 0px #0000008c;
+}
+.stamp.rotate180 {
+    box-shadow: -2px -2px 5px 0px #0000008c;
+}
+.stamp.rotate270 {
+    box-shadow: 2px -2px 5px 0px #0000008c;
+}
+.stamp.rotate270::after {
+    transform: rotate(270deg);
+}
+.stamp.rotate90::after {
+    transform: rotate(90deg);
+}
+.stamp.rotate180::after {
+    transform: rotate(180deg);
+}
+section.stampAnnotation > div.stamp::after {
+    pointer-events: none;
+    position: relative;
+    display: block;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.page .stamp, #placeholder.stamp {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 0.4rem;
+    font-weight: bold;
+    font-style: italic;
+}
+.page .stamp {
+    color: #aaaa00;
+    border-color: #aaaa00;
+    background: transparent;
+}
+.stamp.NotApproved, .stamp.Void, .stamp.Expired, .stamp.Sold, .stamp.TopSecret {
+    color: brown;
+    border-color: brown;
+    background: linear-gradient(45deg, #ffeeee88, #ff696988);
+}
+.stamp.Approved, .stamp.Final, .stamp.Completed {
+    color: rgb(65, 106, 28);
+    border-color: rgb(65, 106, 28);
+    background: linear-gradient(45deg, #eeffee88, #69ff6988);
+}
+.stamp.Draft, .stamp.Confidential, .stamp.ForPublicRelease, .stamp.NotForPublicRelease, 
+.stamp.ForComment, .stamp.PreliminaryResults, .stamp.InformationOnly, .stamp.AsIs, .stamp.Departmental, .stamp.Experimental {
+    color: rgb(36, 77, 126);
+    border-color: rgb(36, 77, 126);
+    background: linear-gradient(45deg, #eeeeff88, #6969ff88);
+}
+
+.freeTextAnnotation> div:not(.popupWrapper)::after {
+    content: attr(data-contents);
+}
+.freeTextAnnotation> div.rotate0:not(.popupWrapper)::after {
+    transform: rotate(0deg);
+    margin-left: 0.3rem;
+}
+.freeTextAnnotation> div.rotate90:not(.popupWrapper)::after {
+    transform: rotate(90deg);
+    margin-top: 0.3rem;
+}
+.freeTextAnnotation> div.rotate180:not(.popupWrapper)::after {
+    transform: rotate(180deg);
+    margin-right: 0.3rem;
+}
+.freeTextAnnotation> div.rotate270:not(.popupWrapper)::after {
+    transform: rotate(270deg);
+    margin-bottom: 0.3em;
+}
+.freeTextAnnotation> div.rotate90 {
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+.freeTextAnnotation> div.rotate180 {
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+.freeTextAnnotation> div.rotate270 {
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.inkAnnotation > svg {
+    position: absolute;
+}
+
+.annotationLayer section.selected,
+.annotationLayer section.selected > *:not(.popupWrapper) {
+    box-sizing: border-box;
+}
+
+@media print {
+    .toolbar, .sidebar, .viewbar {
+        display: none;
+    }
+    #main {
+        height: unset;
+        width: unset;
+        position: unset;
+        left: unset;
+        top: unset;
+    }
+    #viewerContainer {
+        overflow-x: unset;
+        overflow-y: unset;
+    }
+    .pdfViewer .page {
+        border: none;
+        border-image: none;
+        page-break-after: always;
+    }
+    .resizer {
+        display: none;
+    }
+}
+.print-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: white;
+    opacity: 0.5;
+    font-size: 2em;
+    text-shadow: 2px 2px 2px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+}
+
+.menu {
+    display: none;
+    padding: 0;
+    position: fixed;  /* absolute can't show anything outside parent sidecard */
+    top: 0;
+    left: 0;
+    background: white !important;
+    white-space: nowrap;
+    text-align: left;
+    z-index: 3;
+    color: initial;
+    border-radius: 0;
+    box-shadow: 1px 1px 6px 0 #aaaa;
+}
+.menu > li.menu-title {
+    background: #aaa;
+}
+.menu > li {
+    padding: 0.3em;
+    list-style: none;
+}
+.menu > li:not(.menu-title):hover {
+    background: #888;
+}
+.menu > li > .fa-check {
+    visibility: hidden;
+    margin: 0 0.2em;
+}
+.menu > li.checked > .fa-check {
+    visibility: visible;
+}
+
+.modal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fffa;
+}
+.modal > * {
+    border: 1px solid black;
+    box-shadow: 2px 2px 8px 0 #444a;
+    padding: 1em;
+    background: #eee;
+}
+.modal > form > * {
+    padding: 0.5em 0;
+}
+
+.resizer {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    font-size: 8px;
+    cursor: nwse-resize;
+    height: 6px;
+    overflow: hidden;
+}
+.selected .resizer {
+    display: none;
+}

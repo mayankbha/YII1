@@ -1,0 +1,65 @@
+.codiacicon {
+    background-position: center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    content: none;
+    vertical-align: middle;
+    background-color: #999;
+    -webkit-mask-position-x: center !important;
+    -webkit-mask-position-y: center !important;
+    mask-position: center !important;;
+}
+
+.size-1em {
+    height: 1.3em;
+    width: 1.3em;
+}
+
+.codiacicon.codiacicon-close {
+    -webkit-mask: url("../img/codiacicon/buttons/close.svg") no-repeat;
+    mask: url("../img/codiacicon/buttons/close.svg") no-repeat;
+}
+.codiacicon.codiacicon-copy {
+    -webkit-mask: url("../img/codiacicon/buttons/copy.svg") no-repeat;
+    mask: url("../img/codiacicon/buttons/copy.svg") no-repeat;
+}
+.codiacicon.codiacicon-edit {
+    -webkit-mask: url("../img/codiacicon/buttons/edit.svg") no-repeat;
+    mask: url("../img/codiacicon/buttons/edit.svg") no-repeat;
+}
+.codiacicon.codiacicon-file {
+    -webkit-mask: url("../img/codiacicon/buttons/file.svg") no-repeat;
+    mask: url("../img/codiacicon/buttons/file.svg") no-repeat;
+}
+.codiacicon.codiacicon-import {
+    -webkit-mask: url("../img/codiacicon/buttons/import.svg") no-repeat;
+    mask: url("../img/codiacicon/buttons/import.svg") no-repeat;
+}
+.codiacicon.codiacicon-next {
+    -webkit-mask: url("../img/codiacicon/buttons/next.svg") no-repeat;
+    mask: url("../img/codiacicon/buttons/next.svg") no-repeat;
+}
+.codiacicon.codiacicon-previous {
+    -webkit-mask: url("../img/codiacicon/buttons/previous.svg") no-repeat;
+    mask: url("../img/codiacicon/buttons/previous.svg") no-repeat;
+}
+.codiacicon.codiacicon-save {
+    -webkit-mask: url("../img/codiacicon/buttons/save.svg") no-repeat;
+    mask: url("../img/codiacicon/buttons/save.svg") no-repeat;
+}
+.codiacicon.codiacicon-setting {
+    -webkit-mask: url("../img/codiacicon/buttons/setting.svg") no-repeat;
+    mask: url("../img/codiacicon/buttons/setting.svg") no-repeat;
+}
+.codiacicon.codiacicon-trash {
+    -webkit-mask: url("../img/codiacicon/buttons/trash.svg") no-repeat;
+    mask: url("../img/codiacicon/buttons/trash.svg") no-repeat;
+}
+.codiacicon.codiacicon-menu {
+    -webkit-mask: url("../img/codiacicon/buttons/menu.svg") no-repeat;
+    mask: url("../img/codiacicon/buttons/menu.svg") no-repeat;
+}
+.codiacicon.codiacicon-assigned {
+    -webkit-mask: url("../img/codiacicon/buttons/assigned.svg") no-repeat;
+    mask: url("../img/codiacicon/buttons/assigned.svg") no-repeat;
+}

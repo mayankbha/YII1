@@ -1,0 +1,52 @@
+{
+  "name": "chartjs-plugin-regression",
+  "version": "0.2.1",
+  "description": "Plugin to draw a regression line",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc && webpack --mode development",
+    "format": "prettier --write \"src/**/*.ts\" \"demo/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "test": "echo \"Warning: no test specified\"",
+    "preversion": "npm test",
+    "version": "node bin/setversion.js && npm run prepare && git add -A",
+    "postversion": "git push && git push --tags",
+    "prepare": "find . -name '*.map' -delete; tsc && webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pomgui/chartjs-plugin-regression.git"
+  },
+  "keywords": [
+    "charts",
+    "chartjs",
+    "regression",
+    "data",
+    "fiting",
+    "analysis"
+  ],
+  "bugs": {
+    "url": "https://github.com/pomgui/chartjs-plugin-regression/issues"
+  },
+  "homepage": "https://github.com/pomgui/chartjs-plugin-regression#readme",
+  "author": "Wilfredo Pomier (wpomier@pomgui.com)",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chart.js": "^2.9.22",
+    "@types/regression": "^2.0.0",
+    "prettier": "^2.0.5",
+    "source-map-loader": "^1.0.1",
+    "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.9.6"
+  },
+  "dependencies": {
+    "regression": "^2.0.1"
+  },
+  "peerDependencies": {
+    "chart.js": "^2.6.0"
+  },
+  "files": [
+    "lib/**/*"
+  ]
+}
